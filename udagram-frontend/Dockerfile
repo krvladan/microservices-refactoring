@@ -4,12 +4,13 @@ FROM node:12.17.0
 # Create app directory in Docker
 WORKDIR /usr/src/app
 
+RUN npm install -g @ionic/cli
+
 # Copy app from local environment into the Docker image
 COPY . .
 
 # Install dependencies in Docker
 RUN npm install
-RUN npm install -g @ionic/cli
 
 # build
 RUN ionic build
