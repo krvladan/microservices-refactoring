@@ -1,10 +1,12 @@
 version: "3.8"
 services:
-  feed:
+  udagram-api-feed:
     build: 
       context: ./udagram-api-feed
     image: udagram-api-feed
-    network_mode: "host"
+    # network_mode: "host"
+    ports: 
+      - "8091:8091"
     environment:
       POSTGRES_USERNAME:
       POSTGRES_PASSWORD:
@@ -16,11 +18,13 @@ services:
       JWT_SECRET:
       URL:
 
-  users:
+  udagram-api-users:
     build: 
       context: ./udagram-api-users
     image: udagram-api-users
-    network_mode: "host"
+    # network_mode: "host"
+    ports: 
+      - "8090:8090"
     environment:
       POSTGRES_USERNAME:
       POSTGRES_PASSWORD:
@@ -32,11 +36,13 @@ services:
       JWT_SECRET:
       URL:
 
-  frontend:
+  udagram-frontend:
     build: 
       context: ./udagram-frontend
     image: udagram-frontend
     network_mode: "host"
+    # ports: 
+    #   - "8100:8100"
     environment:
       POSTGRES_USERNAME:
       POSTGRES_PASSWORD:
@@ -48,12 +54,14 @@ services:
       JWT_SECRET:
       URL:
 
-  reverseproxy:
+  udagram-reverseproxy:
     build: 
       context: ./udagram-reverseproxy
       network: host
     image: udagram-reverseproxy
-    network_mode: "host"
+    # network_mode: "host"
+    ports: 
+      - "8080:8080"
 
 
   
