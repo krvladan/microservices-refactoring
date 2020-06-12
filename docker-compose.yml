@@ -17,6 +17,8 @@ services:
       AWS_PROFILE:
       JWT_SECRET:
       URL:
+    volumes:
+      - $HOME/.aws:/root/.aws
 
   udagram-api-users:
     build: 
