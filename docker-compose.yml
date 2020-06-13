@@ -4,7 +4,6 @@ services:
     build: 
       context: ./udagram-api-feed
     image: udagram-api-feed
-    # network_mode: "host"
     ports: 
       - "8091:8091"
     environment:
@@ -24,7 +23,6 @@ services:
     build: 
       context: ./udagram-api-users
     image: udagram-api-users
-    # network_mode: "host"
     ports: 
       - "8090:8090"
     environment:
@@ -59,9 +57,7 @@ services:
   udagram-reverseproxy:
     build: 
       context: ./udagram-reverseproxy
-      network: host
     image: udagram-reverseproxy
-    # network_mode: "host"
     ports: 
       - "8080:8080"
 
