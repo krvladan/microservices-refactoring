@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install dependencies in Docker
-RUN npm install
+RUN npm ci
 
 # Set the API’s port number
 EXPOSE 8091
