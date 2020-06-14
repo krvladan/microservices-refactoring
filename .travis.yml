@@ -1,10 +1,6 @@
-# blocklist
 branches:
   except:
   - monolith-to-microservices
-
-# safelist
-branches:
   only:
   - master
 
