@@ -10,7 +10,7 @@ RUN npm install -g @ionic/cli
 COPY . .
 
 # Install dependencies in Docker
-RUN npm install
+RUN npm ci
 
 # build
 RUN ionic build
