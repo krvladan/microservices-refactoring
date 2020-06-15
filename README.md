@@ -42,3 +42,12 @@ Create a PostgreSQL database either locally or on AWS RDS. Set the config values
 
 ### S3
 Create an AWS S3 bucket. Set the config values for environment variables prefixed with `AWS_` in `set_env.sh`.
+
+### AWD Credentials
+AWS access credentials `$HOME/.aws/credentials` must be set for the feed component to be able to fetch signed URLs fom S3. This can be done by running `aws configure` from the console (must have aws console tools installed).
+
+## Running on Kubernetes
+
+To deploy to a kubernetes service, e.g. AWS EKS, a set of `.yaml` files is prepared in the `./kubernetes` subfolder.
+The `kubectl-apply-secrets.sh` bash script will convert and apply appropriate environment variables and aws access config files secrets.
+The rest of the `.yaml` files can be applied with `kubectl apply -f <filename>`
